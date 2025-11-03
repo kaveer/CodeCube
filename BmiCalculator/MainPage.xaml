@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="BmiCalculator.MainPage"
+    Title="BMI Calculator"
+          BackgroundColor="{StaticResource Gray100}">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20">
+            
+            <!-- Header Card -->
+            <Frame 
+         CornerRadius="20"
+        HasShadow="True"
+                Padding="30,40"
+      Margin="0,10,0,0"
+       Background="{StaticResource PrimaryGradientBrush}">
+ <VerticalStackLayout Spacing="10">
+         <Label
+     Text="BMI Calculator"
+          FontSize="32"
+  FontAttributes="Bold"
+      TextColor="White"
+      HorizontalOptions="Center"
+       SemanticProperties.HeadingLevel="Level1" />
+
+    <Label
+       Text="Track your health journey"
+         FontSize="16"
+  TextColor="White"
+     Opacity="0.9"
+        HorizontalOptions="Center"
+          SemanticProperties.HeadingLevel="Level2" />
+     </VerticalStackLayout>
+    </Frame>
+
+      <!-- Input Card -->
+ <Frame
+   CornerRadius="20"
+            HasShadow="True"
+    Padding="25"
+       BackgroundColor="White">
+  <VerticalStackLayout Spacing="20">
+       <!-- Weight Input -->
+           <VerticalStackLayout Spacing="8">
+     <Label
+    Text="Weight (kg)"
+  FontSize="14"
+          FontAttributes="Bold"
+       TextColor="{StaticResource Gray600}" />
+    
+            <Border
+       Stroke="{StaticResource Gray300}"
+    StrokeThickness="1"
+   Background="White"
+   Padding="15,10"
+              StrokeShape="RoundRectangle 12">
+    <Entry
+            x:Name="WeightEntry"
+         Placeholder="Enter your weight"
+       Keyboard="Numeric"
+    TextChanged="OnInputChanged"
+      SemanticProperties.Description="Enter your weight in kilograms" />
+     </Border>
+   </VerticalStackLayout>
+
+     <!-- Height Input -->
+       <VerticalStackLayout Spacing="8">
+      <Label
+   Text="Height (cm)"
+           FontSize="14"
+      FontAttributes="Bold"
+    TextColor="{StaticResource Gray600}" />
+      
+      <Border
+      Stroke="{StaticResource Gray300}"
+   StrokeThickness="1"
+   Background="White"
+     Padding="15,10"
+         StrokeShape="RoundRectangle 12">
+   <Entry
+              x:Name="HeightEntry"
+              Placeholder="Enter your height"
+    Keyboard="Numeric"
+     TextChanged="OnInputChanged"
+  SemanticProperties.Description="Enter your height in centimeters" />
+            </Border>
+    </VerticalStackLayout>
+
+       <!-- Calculate Button -->
+        <Button
+                x:Name="CalculateBtn"
+         Text="Calculate BMI" 
+   Clicked="OnCalculateClicked"
+     FontSize="16"
+                FontAttributes="Bold"
+    CornerRadius="12"
+             HeightRequest="55"
+       Margin="0,10,0,0"
+              Background="{StaticResource PrimaryGradientBrush}"
+       TextColor="White"
+       SemanticProperties.Hint="Calculate your Body Mass Index" />
+                </VerticalStackLayout>
+ </Frame>
+
+     <!-- Results Card -->
+       <Frame
+      x:Name="ResultFrame"
+       IsVisible="False"
+         CornerRadius="20"
+    HasShadow="True"
+           Padding="30"
+BackgroundColor="White">
+           <VerticalStackLayout Spacing="15">
+<Label
+       Text="Your Result"
+        FontSize="18"
+   FontAttributes="Bold"
+     TextColor="{StaticResource Gray600}"
+      HorizontalOptions="Center" />
+      
+ <Label
+            x:Name="BmiValueLabel"
+          FontSize="48"
+    FontAttributes="Bold"
+     HorizontalOptions="Center"
+               TextColor="{StaticResource Primary}"
+  SemanticProperties.Description="Your BMI value" />
+             
+          <Frame
+        Padding="15,10"
+     CornerRadius="20"
+   HasShadow="False"
+      BackgroundColor="{StaticResource Gray100}"
+            HorizontalOptions="Center">
+  <Label
+             x:Name="BmiCategoryLabel"
+   FontSize="20"
+    FontAttributes="Bold"
+   HorizontalOptions="Center"
+         SemanticProperties.Description="Your BMI category" />
+   </Frame>
+       
+         <Label
+         x:Name="BmiDescriptionLabel"
+         FontSize="14"
+         TextColor="{StaticResource Gray500}"
+  HorizontalOptions="Center"
+         HorizontalTextAlignment="Center"
+    LineBreakMode="WordWrap"
+          Margin="0,5,0,0" />
+        </VerticalStackLayout>
+            </Frame>
+
+            <!-- Info Card -->
+      <Frame
+   CornerRadius="20"
+       HasShadow="True"
+Padding="25"
+     BackgroundColor="White"
+         Margin="0,0,0,20">
+     <VerticalStackLayout Spacing="15">
+   <Label
+    Text="BMI Categories"
+    FontSize="16"
+         FontAttributes="Bold"
+    TextColor="{StaticResource Gray900}" />
+              
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="12" ColumnSpacing="12">
+               <!-- Underweight -->
+             <BoxView Grid.Row="0" Grid.Column="0" WidthRequest="4" HeightRequest="35" CornerRadius="2" Color="#F59E0B" />
+       <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2">
+        <Label Text="Underweight" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Gray900}" />
+              <Label Text="BMI less than 18.5" FontSize="12" TextColor="{StaticResource Gray500}" />
+                 </VerticalStackLayout>
+         
+            <!-- Normal -->
+         <BoxView Grid.Row="1" Grid.Column="0" WidthRequest="4" HeightRequest="35" CornerRadius="2" Color="#10B981" />
+      <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="2">
+    <Label Text="Normal Weight" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Gray900}" />
+       <Label Text="BMI 18.5 - 24.9" FontSize="12" TextColor="{StaticResource Gray500}" />
+     </VerticalStackLayout>
+   
+            <!-- Overweight -->
+       <BoxView Grid.Row="2" Grid.Column="0" WidthRequest="4" HeightRequest="35" CornerRadius="2" Color="#F59E0B" />
+                 <VerticalStackLayout Grid.Row="2" Grid.Column="1" Spacing="2">
+                <Label Text="Overweight" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Gray900}" />
+         <Label Text="BMI 25 - 29.9" FontSize="12" TextColor="{StaticResource Gray500}" />
+             </VerticalStackLayout>
+            
+      <!-- Obesity -->
+       <BoxView Grid.Row="3" Grid.Column="0" WidthRequest="4" HeightRequest="35" CornerRadius="2" Color="#EF4444" />
+        <VerticalStackLayout Grid.Row="3" Grid.Column="1" Spacing="2">
+            <Label Text="Obesity" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Gray900}" />
+        <Label Text="BMI 30 or greater" FontSize="12" TextColor="{StaticResource Gray500}" />
+    </VerticalStackLayout>
+         </Grid>
+                </VerticalStackLayout>
+         </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

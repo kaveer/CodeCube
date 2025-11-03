@@ -1,0 +1,4 @@
+C:\Repo\Playground\CodeCube\BmiCalculator\bin\Release\net9.0-android\publish\com.cubecode.bmicalculator-Signed.aab
+C:\Repo\Playground\CodeCube\BmiCalculator\bin\Release\net9.0-android\publish\com.cubecode.bmicalculator.aab
+C:\Repo\Playground\CodeCube\BmiCalculator\bin\Release\net9.0-android\publish\com.cubecode.bmicalculator-Signed.apk
+C:\Repo\Playground\CodeCube\BmiCalculator\bin\Release\net9.0-android\publish\_Microsoft.Android.Resource.Designer.dll
