@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Modern Notes App Color Palette -->
+    
+    <!-- Primary Colors - Vibrant Purple/Blue -->
+    <Color x:Key="Primary">#6366F1</Color>
+    <Color x:Key="PrimaryDark">#A5B4FC</Color>
+    <Color x:Key="PrimaryDarkText">#4F46E5</Color>
+    <Color x:Key="Secondary">#E0E7FF</Color>
+    <Color x:Key="SecondaryDarkText">#818CF8</Color>
+    <Color x:Key="Tertiary">#4338CA</Color>
+    
+    <!-- Accent Colors for Note Categories -->
+    <Color x:Key="AccentPurple">#A78BFA</Color>
+    <Color x:Key="AccentBlue">#60A5FA</Color>
+    <Color x:Key="AccentGreen">#34D399</Color>
+    <Color x:Key="AccentYellow">#FBBF24</Color>
+    <Color x:Key="AccentPink">#F472B6</Color>
+    <Color x:Key="AccentOrange">#FB923C</Color>
+  
+    <!-- Semantic Colors -->
+    <Color x:Key="Success">#10B981</Color>
+    <Color x:Key="Warning">#F59E0B</Color>
+    <Color x:Key="Danger">#EF4444</Color>
+    <Color x:Key="Info">#3B82F6</Color>
+
+    <!-- Base Colors -->
+    <Color x:Key="White">#FFFFFF</Color>
+    <Color x:Key="Black">#000000</Color>
+    <Color x:Key="OffBlack">#0D0D0D</Color>
+    <Color x:Key="MidnightBlue">#1A1A1A</Color>
+    <Color x:Key="Magenta">#EC4899</Color>
+    
+    <!-- Gray Scale - Tailwind Inspired -->
+  <Color x:Key="Gray50">#F9FAFB</Color>
+    <Color x:Key="Gray100">#F3F4F6</Color>
+    <Color x:Key="Gray200">#E5E7EB</Color>
+    <Color x:Key="Gray300">#D1D5DB</Color>
+    <Color x:Key="Gray400">#9CA3AF</Color>
+ <Color x:Key="Gray500">#6B7280</Color>
+    <Color x:Key="Gray600">#4B5563</Color>
+    <Color x:Key="Gray700">#374151</Color>
+    <Color x:Key="Gray800">#1F2937</Color>
+    <Color x:Key="Gray900">#111827</Color>
+    <Color x:Key="Gray950">#030712</Color>
+
+    <!-- Background Colors -->
+    <Color x:Key="BackgroundLight">#F8F9FA</Color>
+    <Color x:Key="BackgroundDark">#0D0D0D</Color>
+    <Color x:Key="SurfaceLight">#FFFFFF</Color>
+    <Color x:Key="SurfaceDark">#1A1A1A</Color>
+    <Color x:Key="CardLight">#FFFFFF</Color>
+    <Color x:Key="CardDark">#1A1A1A</Color>
+
+  <!-- Text Colors -->
+  <Color x:Key="TextPrimaryLight">#111827</Color>
+  <Color x:Key="TextPrimaryDark">#F9FAFB</Color>
+    <Color x:Key="TextSecondaryLight">#6B7280</Color>
+  <Color x:Key="TextSecondaryDark">#9CA3AF</Color>
+
+    <!-- Solid Color Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+  <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+    
+   <!-- Gradient Brushes for Modern Effects -->
+    <LinearGradientBrush x:Key="PrimaryGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#6366F1" Offset="0.0" />
+      <GradientStop Color="#8B5CF6" Offset="1.0" />
+  </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="AccentGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#EC4899" Offset="0.0" />
+        <GradientStop Color="#F59E0B" Offset="1.0" />
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="SunsetGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#F59E0B" Offset="0.0" />
+        <GradientStop Color="#EF4444" Offset="1.0" />
+    </LinearGradientBrush>
+</ResourceDictionary>

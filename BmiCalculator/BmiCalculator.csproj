@@ -42,17 +42,11 @@
 	</PropertyGroup>
 
 	<!-- Android Release Configuration -->
-	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
-		<AndroidKeyStore>True</AndroidKeyStore>
-		<AndroidSigningKeyStore>bmicalculator.keystore</AndroidSigningKeyStore>
-		<AndroidSigningKeyAlias>bmicalculator</AndroidSigningKeyAlias>
-		<AndroidSigningKeyPass>kaveer30sep199107</AndroidSigningKeyPass>
-		<AndroidSigningStorePass>kaveer30sep199107</AndroidSigningStorePass>
-		<AndroidPackageFormat>aab</AndroidPackageFormat>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+		<AndroidPackageFormat>apk</AndroidPackageFormat>
+		<AndroidUseAapt2>true</AndroidUseAapt2>
+		<AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
 		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-		<AndroidLinkMode>SdkOnly</AndroidLinkMode>
-		<RunAOTCompilation>false</RunAOTCompilation>
-		<PublishTrimmed>true</PublishTrimmed>
 	</PropertyGroup>
 
 	<ItemGroup>

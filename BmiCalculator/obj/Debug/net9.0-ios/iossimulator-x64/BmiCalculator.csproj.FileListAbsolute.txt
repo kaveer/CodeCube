@@ -309,4 +309,4 @@ C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-ios\iossimulator-x64\
 C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\r\Assets.xcassets\icon.appiconset\icon20x20@3x.jpeg
 C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\r\Assets.xcassets\icon.appiconset\icon20x20@2x.jpeg
 C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\r\Assets.xcassets\icon.appiconset\Contents.json
-C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-ios\iossimulator-x64\build-signature\signature
+C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-ios\iossimulator-x64\BmiCalculator.sourcelink.json

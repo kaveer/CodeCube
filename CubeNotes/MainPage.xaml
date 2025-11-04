@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CubeNotes.MainPage"
+       BackgroundColor="{AppThemeBinding Light=#F8F9FA, Dark=#0D0D0D}">
+
+ <ScrollView>
+        <VerticalStackLayout Padding="32,60" Spacing="40" VerticalOptions="Center">
+
+      <!-- Hero Section -->
+<VerticalStackLayout Spacing="24" HorizontalOptions="Center">
+   <!-- App Icon with Gradient Background -->
+       <Border WidthRequest="120"
+      HeightRequest="120"
+       StrokeShape="RoundRectangle 32"
+   StrokeThickness="0"
+      HorizontalOptions="Center">
+        <Border.Background>
+     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#6366F1" Offset="0.0"/>
+     <GradientStop Color="#8B5CF6" Offset="0.5"/>
+       <GradientStop Color="#EC4899" Offset="1.0"/>
+       </LinearGradientBrush>
+    </Border.Background>
+    <Border.Shadow>
+      <Shadow Brush="#6366F180"
+     Offset="0,12"
+       Radius="32"
+      Opacity="1"/>
+      </Border.Shadow>
+    <Label Text="📝"
+FontSize="64"
+     HorizontalOptions="Center"
+        VerticalOptions="Center"/>
+ </Border>
+
+ <!-- Welcome Text -->
+  <VerticalStackLayout Spacing="12" HorizontalOptions="Center">
+    <Label Text="Welcome to CubeNotes"
+      FontSize="34"
+       FontAttributes="Bold"
+         TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
+     HorizontalTextAlignment="Center"
+    LineBreakMode="WordWrap"/>
+
+   <Label Text="Capture thoughts. Stay organized. Be productive."
+       FontSize="17"
+         TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
+   HorizontalTextAlignment="Center"
+        LineBreakMode="WordWrap"
+          Padding="0,0,0,0"/>
+   </VerticalStackLayout>
+</VerticalStackLayout>
+
+<!-- Feature Cards -->
+ <VerticalStackLayout Spacing="16">
+    <!-- Feature 1 -->
+        <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+         Padding="20,18"
+     StrokeShape="RoundRectangle 16"
+      StrokeThickness="0">
+     <Border.Shadow>
+<Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000030}"
+   Offset="0,4"
+  Radius="16"
+      Opacity="1"/>
+   </Border.Shadow>
+       <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+  <Border Grid.Column="0"
+     WidthRequest="56"
+     HeightRequest="56"
+StrokeShape="RoundRectangle 14"
+      StrokeThickness="0">
+   <Border.Background>
+  <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+    <GradientStop Color="#6366F120" Offset="0.0"/>
+        <GradientStop Color="#8B5CF620" Offset="1.0"/>
+      </LinearGradientBrush>
+         </Border.Background>
+         <Label Text="✨"
+   FontSize="28"
+       HorizontalOptions="Center"
+  VerticalOptions="Center"/>
+       </Border>
+            <VerticalStackLayout Grid.Column="1" Spacing="6" VerticalOptions="Center">
+      <Label Text="Smart Organization"
+      FontSize="18"
+    FontAttributes="Bold"
+   TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"/>
+      <Label Text="Tag and categorize your notes with ease"
+   FontSize="14"
+         TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
+     LineBreakMode="WordWrap"/>
+      </VerticalStackLayout>
+       </Grid>
+     </Border>
+
+       <!-- Feature 2 -->
+  <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+      Padding="20,18"
+   StrokeShape="RoundRectangle 16"
+      StrokeThickness="0">
+     <Border.Shadow>
+     <Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000030}"
+  Offset="0,4"
+      Radius="16"
+    Opacity="1"/>
+      </Border.Shadow>
+     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+        <Border Grid.Column="0"
+        WidthRequest="56"
+   HeightRequest="56"
+         StrokeShape="RoundRectangle 14"
+     StrokeThickness="0">
+         <Border.Background>
+   <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+       <GradientStop Color="#EC489920" Offset="0.0"/>
+     <GradientStop Color="#F4724620" Offset="1.0"/>
+   </LinearGradientBrush>
+      </Border.Background>
+      <Label Text="🎨"
+     FontSize="28"
+   HorizontalOptions="Center"
+       VerticalOptions="Center"/>
+     </Border>
+      <VerticalStackLayout Grid.Column="1" Spacing="6" VerticalOptions="Center">
+ <Label Text="Beautiful &amp; Modern"
+     FontSize="18"
+   FontAttributes="Bold"
+       TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"/>
+ <Label Text="Clean interface with customizable colors"
+    FontSize="14"
+       TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
+   LineBreakMode="WordWrap"/>
+ </VerticalStackLayout>
+        </Grid>
+    </Border>
+
+      <!-- Feature 3 -->
+ <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+         Padding="20,18"
+   StrokeShape="RoundRectangle 16"
+     StrokeThickness="0">
+            <Border.Shadow>
+      <Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000030}"
+      Offset="0,4"
+    Radius="16"
+  Opacity="1"/>
+        </Border.Shadow>
+   <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+     <Border Grid.Column="0"
+   WidthRequest="56"
+        HeightRequest="56"
+     StrokeShape="RoundRectangle 14"
+      StrokeThickness="0">
+        <Border.Background>
+      <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+ <GradientStop Color="#10B98120" Offset="0.0"/>
+         <GradientStop Color="#05966920" Offset="1.0"/>
+   </LinearGradientBrush>
+ </Border.Background>
+  <Label Text="🔍"
+   FontSize="28"
+       HorizontalOptions="Center"
+   VerticalOptions="Center"/>
+   </Border>
+ <VerticalStackLayout Grid.Column="1" Spacing="6" VerticalOptions="Center">
+   <Label Text="Powerful Search"
+    FontSize="18"
+        FontAttributes="Bold"
+   TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"/>
+       <Label Text="Find any note instantly with quick search"
+     FontSize="14"
+  TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
+         LineBreakMode="WordWrap"/>
+   </VerticalStackLayout>
+     </Grid>
+      </Border>
+  </VerticalStackLayout>
+
+      <!-- CTA Button -->
+ <Border Padding="0"
+     StrokeShape="RoundRectangle 16"
+   StrokeThickness="0"
+       HorizontalOptions="Fill"
+   Margin="0,8,0,0">
+    <Border.Background>
+ <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+      <GradientStop Color="#6366F1" Offset="0.0"/>
+          <GradientStop Color="#8B5CF6" Offset="1.0"/>
+        </LinearGradientBrush>
+   </Border.Background>
+ <Border.Shadow>
+      <Shadow Brush="#6366F180"
+      Offset="0,6"
+  Radius="20"
+          Opacity="1"/>
+      </Border.Shadow>
+   <Border.GestureRecognizers>
+   <TapGestureRecognizer Tapped="OnCounterClicked"/>
+ </Border.GestureRecognizers>
+    
+   <Label x:Name="CounterBtn"
+     Text="Get Started"
+       FontSize="18"
+      FontAttributes="Bold"
+   TextColor="White"
+    HorizontalOptions="Center"
+ VerticalOptions="Center"
+   Padding="0,18"/>
+      </Border>
+
+    <!-- Footer -->
+ <VerticalStackLayout Spacing="8" HorizontalOptions="Center" Margin="0,24,0,0">
+     <Label Text="Version 1.0.0"
+        FontSize="13"
+     TextColor="{AppThemeBinding Light=#9CA3AF, Dark=#6B7280}"
+        HorizontalTextAlignment="Center"/>
+   <Label Text="Built with .NET MAUI"
+     FontSize="12"
+       TextColor="{AppThemeBinding Light=#D1D5DB, Dark=#4B5563}"
+         HorizontalTextAlignment="Center"/>
+      </VerticalStackLayout>
+ </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+   x:Class="CubeNotes.Views.NoteEditorPage"
+   Title="Edit Note"
+   BackgroundColor="{AppThemeBinding Light=#F8F9FA, Dark=#0D0D0D}">
+
+<Grid RowDefinitions="Auto,*,Auto">
+    
+    <!-- Modern Header with Actions -->
+    <Border Grid.Row="0"
+   BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+         StrokeThickness="0">
+        <Border.Shadow>
+     <Shadow Brush="{AppThemeBinding Light=#00000015, Dark=#00000040}"
+         Offset="0,2"
+        Radius="12"
+ Opacity="1"/>
+        </Border.Shadow>
+   
+        <Grid Padding="20,60,20,20" ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="12">
+            <!-- Back Button -->
+<Border Grid.Column="0"
+         Background="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
+     WidthRequest="44"
+        HeightRequest="44"
+    StrokeShape="RoundRectangle 12"
+  StrokeThickness="0"
+         VerticalOptions="Center">
+      <Border.GestureRecognizers>
+  <TapGestureRecognizer Tapped="OnBackClicked"/>
+              </Border.GestureRecognizers>
+ <Label Text="←"
+    FontSize="24"
+    TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
+      HorizontalOptions="Center"
+   VerticalOptions="Center"/>
+     </Border>
+ 
+    <!-- Title -->
+    <Label Grid.Column="1"
+   Text="Edit Note"
+          FontSize="20"
+   FontAttributes="Bold"
+         TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
+    VerticalOptions="Center"/>
+
+       <!-- Delete Button -->
+          <Border Grid.Column="2"
+     Background="{AppThemeBinding Light=#FEE2E2, Dark=#7F1D1D}"
+   WidthRequest="44"
+        HeightRequest="44"
+        StrokeShape="RoundRectangle 12"
+   StrokeThickness="0"
+    VerticalOptions="Center">
+   <Border.GestureRecognizers>
+    <TapGestureRecognizer Tapped="OnDeleteClicked"/>
+          </Border.GestureRecognizers>
+     <Label Text="🗑️"
+   FontSize="20"
+         HorizontalOptions="Center"
+  VerticalOptions="Center"/>
+      </Border>
+    
+            <!-- Save Button -->
+       <Border Grid.Column="3"
+        WidthRequest="44"
+ HeightRequest="44"
+     StrokeShape="RoundRectangle 12"
+        StrokeThickness="0"
+  VerticalOptions="Center">
+      <Border.Background>
+  <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+   <GradientStop Color="#10B981" Offset="0.0"/>
+         <GradientStop Color="#059669" Offset="1.0"/>
+    </LinearGradientBrush>
+        </Border.Background>
+   <Border.Shadow>
+   <Shadow Brush="#10B98140"
+ Offset="0,2"
+       Radius="8"
+      Opacity="1"/>
+   </Border.Shadow>
+  <Border.GestureRecognizers>
+           <TapGestureRecognizer Tapped="OnSaveClicked"/>
+ </Border.GestureRecognizers>
+  <Label Text="✓"
+   FontSize="24"
+        TextColor="White"
+      FontAttributes="Bold"
+    HorizontalOptions="Center"
+      VerticalOptions="Center"/>
+      </Border>
+        </Grid>
+    </Border>
+
+    <!-- Content Scroll Area -->
+    <ScrollView Grid.Row="1">
+    <VerticalStackLayout Padding="20,24" Spacing="24">
+  
+  <!-- Title Input Card -->
+    <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+         Padding="20,16"
+     StrokeShape="RoundRectangle 16"
+     StrokeThickness="0">
+ <Border.Shadow>
+    <Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000030}"
+      Offset="0,2"
+          Radius="12"
+                   Opacity="1"/>
+     </Border.Shadow>
+ 
+   <VerticalStackLayout Spacing="8">
+   <Label Text="TITLE"
+          FontSize="11"
+         FontAttributes="Bold"
+      TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
+       <Entry x:Name="TitleEntry"
+    Placeholder="Untitled Note"
+         FontSize="24"
+    FontAttributes="Bold"
+   PlaceholderColor="{AppThemeBinding Light=#D1D5DB, Dark=#4B5563}"
+      TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
+       BackgroundColor="Transparent"/>
+   </VerticalStackLayout>
+      </Border>
+  
+    <!-- Content Input Card -->
+     <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+       Padding="20,16"
+    StrokeShape="RoundRectangle 16"
+         StrokeThickness="0"
+         MinimumHeightRequest="320">
+ <Border.Shadow>
+  <Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000030}"
+         Offset="0,2"
+            Radius="12"
+     Opacity="1"/>
+      </Border.Shadow>
+    
+    <VerticalStackLayout Spacing="8">
+    <Label Text="CONTENT"
+       FontSize="11"
+           FontAttributes="Bold"
+       TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
+     <Editor x:Name="ContentEditor"
+           Placeholder="Start writing your thoughts..."
+    FontSize="16"
+    AutoSize="TextChanges"
+    PlaceholderColor="{AppThemeBinding Light=#D1D5DB, Dark=#4B5563}"
+    TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
+     BackgroundColor="Transparent"/>
+        </VerticalStackLayout>
+       </Border>
+
+  <!-- Tags Input Card -->
+     <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+ Padding="20,16"
+    StrokeShape="RoundRectangle 16"
+       StrokeThickness="0">
+      <Border.Shadow>
+      <Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000030}"
+ Offset="0,2"
+     Radius="12"
+     Opacity="1"/>
+       </Border.Shadow>
+    
+    <VerticalStackLayout Spacing="8">
+  <HorizontalStackLayout Spacing="8">
+    <Label Text="🏷️" FontSize="16" VerticalOptions="Center"/>
+       <Label Text="TAGS"
+              FontSize="11"
+     FontAttributes="Bold"
+   TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
+          VerticalOptions="Center"/>
+    </HorizontalStackLayout>
+     <Entry x:Name="TagsEntry"
+      Placeholder="work, personal, ideas..."
+    FontSize="15"
+   PlaceholderColor="{AppThemeBinding Light=#D1D5DB, Dark=#4B5563}"
+   TextColor="{AppThemeBinding Light=#6366F1, Dark=#A78BFA}"
+       BackgroundColor="Transparent"/>
+       </VerticalStackLayout>
+  </Border>
+
+       <!-- Color Picker Card -->
+    <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+         Padding="20,16"
+     StrokeShape="RoundRectangle 16"
+     StrokeThickness="0">
+         <Border.Shadow>
+    <Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000030}"
+         Offset="0,2"
+           Radius="12"
+         Opacity="1"/>
+   </Border.Shadow>
+    
+     <VerticalStackLayout Spacing="16">
+ <HorizontalStackLayout Spacing="8">
+        <Label Text="🎨" FontSize="18" VerticalOptions="Center"/>
+     <Label Text="NOTE COLOR"
+           FontSize="11"
+   FontAttributes="Bold"
+   TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
+        VerticalOptions="Center"/>
+ </HorizontalStackLayout>
+
+    <Grid ColumnDefinitions="*,*,*,*,*,*" ColumnSpacing="12" RowDefinitions="52">
+      <!-- Color Options with Modern Style -->
+        <Border Grid.Column="0"
+    x:Name="ColorWhite"
+      StyleId="ColorWhite"
+     Background="White"
+            WidthRequest="52"
+     HeightRequest="52"
+   StrokeShape="RoundRectangle 16"
+  Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#374151}"
+      StrokeThickness="2">
+     <Border.Shadow>
+       <Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000020}"
+      Offset="0,2"
+ Radius="8"
+      Opacity="1"/>
+  </Border.Shadow>
+         <Border.GestureRecognizers>
+ <TapGestureRecognizer Tapped="OnColorSelected"/>
+   </Border.GestureRecognizers>
+            </Border>
+        
+ <Border Grid.Column="1"
+       x:Name="ColorYellow"
+      StyleId="ColorYellow"
+    Background="#FEF3C7"
+    WidthRequest="52"
+    HeightRequest="52"
+ StrokeShape="RoundRectangle 16"
+   Stroke="Transparent"
+    StrokeThickness="2">
+            <Border.Shadow>
+   <Shadow Brush="#FBBF2440"
+  Offset="0,2"
+    Radius="8"
+           Opacity="1"/>
+        </Border.Shadow>
+                <Border.GestureRecognizers>
+         <TapGestureRecognizer Tapped="OnColorSelected"/>
+     </Border.GestureRecognizers>
+   </Border>
+        
+   <Border Grid.Column="2"
+     x:Name="ColorGreen"
+  StyleId="ColorGreen"
+     Background="#D1FAE5"
+       WidthRequest="52"
+   HeightRequest="52"
+               StrokeShape="RoundRectangle 16"
+        Stroke="Transparent"
+      StrokeThickness="2">
+     <Border.Shadow>
+   <Shadow Brush="#34D39940"
+           Offset="0,2"
+     Radius="8"
+ Opacity="1"/>
+        </Border.Shadow>
+             <Border.GestureRecognizers>
+    <TapGestureRecognizer Tapped="OnColorSelected"/>
+       </Border.GestureRecognizers>
+     </Border>
+
+      <Border Grid.Column="3"
+        x:Name="ColorBlue"
+       StyleId="ColorBlue"
+        Background="#DBEAFE"
+       WidthRequest="52"
+       HeightRequest="52"
+   StrokeShape="RoundRectangle 16"
+      Stroke="Transparent"
+     StrokeThickness="2">
+      <Border.Shadow>
+          <Shadow Brush="#60A5FA40"
+       Offset="0,2"
+Radius="8"
+            Opacity="1"/>
+      </Border.Shadow>
+       <Border.GestureRecognizers>
+    <TapGestureRecognizer Tapped="OnColorSelected"/>
+     </Border.GestureRecognizers>
+      </Border>
+
+     <Border Grid.Column="4"
+     x:Name="ColorPurple"
+        StyleId="ColorPurple"
+    Background="#EDE9FE"
+      WidthRequest="52"
+     HeightRequest="52"
+ StrokeShape="RoundRectangle 16"
+        Stroke="Transparent"
+     StrokeThickness="2">
+ <Border.Shadow>
+       <Shadow Brush="#A78BFA40"
+       Offset="0,2"
+    Radius="8"
+           Opacity="1"/>
+     </Border.Shadow>
+                <Border.GestureRecognizers>
+      <TapGestureRecognizer Tapped="OnColorSelected"/>
+      </Border.GestureRecognizers>
+    </Border>
+
+      <Border Grid.Column="5"
+          x:Name="ColorPink"
+   StyleId="ColorPink"
+        Background="#FCE7F3"
+      WidthRequest="52"
+  HeightRequest="52"
+    StrokeShape="RoundRectangle 16"
+          Stroke="Transparent"
+    StrokeThickness="2">
+   <Border.Shadow>
+        <Shadow Brush="#F472B640"
+           Offset="0,2"
+       Radius="8"
+      Opacity="1"/>
+                </Border.Shadow>
+       <Border.GestureRecognizers>
+      <TapGestureRecognizer Tapped="OnColorSelected"/>
+       </Border.GestureRecognizers>
+            </Border>
+        </Grid>
+      </VerticalStackLayout>
+      </Border>
+     </VerticalStackLayout>
+    </ScrollView>
+
+ <!-- Bottom Action Bar -->
+    <Border Grid.Row="2"
+    BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+     Padding="20,16"
+       StrokeThickness="0">
+        <Border.Shadow>
+     <Shadow Brush="{AppThemeBinding Light=#00000015, Dark=#00000040}"
+       Offset="0,-2"
+          Radius="12"
+       Opacity="1"/>
+ </Border.Shadow>
+        
+ <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="16">
+        <HorizontalStackLayout Grid.Column="0" Spacing="16">
+         <Border Background="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
+   Padding="12,8"
+       StrokeShape="RoundRectangle 10"
+    StrokeThickness="0">
+         <HorizontalStackLayout Spacing="6">
+       <Label Text="📌" FontSize="16"/>
+      <Label Text="Pin"
+        FontSize="13"
+             TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
+    </HorizontalStackLayout>
+       </Border>
+   
+ <Border Background="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
+         Padding="12,8"
+        StrokeShape="RoundRectangle 10"
+        StrokeThickness="0">
+         <HorizontalStackLayout Spacing="6">
+       <Label Text="📤" FontSize="16"/>
+       <Label Text="Share"
+         FontSize="13"
+      TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
+      </HorizontalStackLayout>
+         </Border>
+           </HorizontalStackLayout>
+            
+   <Label Grid.Column="1"
+   Text="Last edited just now"
+    FontSize="12"
+            TextColor="{AppThemeBinding Light=#9CA3AF, Dark=#6B7280}"
+     VerticalOptions="Center"/>
+     </Grid>
+    </Border>
+
+    <!-- Loading Overlay -->
+    <Grid Grid.Row="0" Grid.RowSpan="3"
+       BackgroundColor="#00000080"
+       IsVisible="False"
+ x:Name="SavingOverlay">
+        <Border BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+     Padding="32,24"
+       StrokeShape="RoundRectangle 20"
+           StrokeThickness="0"
+     HorizontalOptions="Center"
+     VerticalOptions="Center">
+            <Border.Shadow>
+     <Shadow Brush="Black"
+       Offset="0,8"
+   Radius="24"
+ Opacity="0.3"/>
+     </Border.Shadow>
+       <VerticalStackLayout Spacing="16" HorizontalOptions="Center">
+      <ActivityIndicator x:Name="SavingIndicator"
+        IsRunning="False"
+       Color="{AppThemeBinding Light=#6366F1, Dark=#A78BFA}"
+       WidthRequest="36"
+          HeightRequest="36"/>
+      <Label Text="Saving your note..."
+        FontSize="15"
+       FontAttributes="Bold"
+         TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"/>
+         </VerticalStackLayout>
+        </Border>
+ </Grid>
+    </Grid>
+</ContentPage>
