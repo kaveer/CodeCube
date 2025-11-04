@@ -948,3 +948,4 @@ C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-android\android\bin\c
 C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-android\android\bin\com.cubecode.bmicalculator.apks
 C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-android\android\src\com\cubecode\bmicalculator\R.java
 C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-android\lp\156\jl\files.cache
+C:\Repo\Playground\CodeCube\BmiCalculator\obj\Debug\net9.0-android\BmiCalculator.sourcelink.json

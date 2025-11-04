@@ -1,0 +1,5 @@
+/.vs/*
+/BmiCalculator/bin/*
+/BmiCalculator/bin/Debug/*
+/BmiCalculator/obj/*
+/BmiCalculator/bin/Debug/net9.0-android/*
