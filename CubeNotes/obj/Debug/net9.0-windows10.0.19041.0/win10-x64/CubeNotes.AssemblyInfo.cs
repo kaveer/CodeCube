@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CubeNotes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+61f0de99e91267f1e8fd3dc25bbd6d663f057311")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+7c63faf3c7d26937eee19bef4272b4e5c0e3b7b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CubeNotes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CubeNotes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

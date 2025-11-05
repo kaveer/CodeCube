@@ -6,328 +6,278 @@
     Title="CubeNotes"
     BackgroundColor="{AppThemeBinding Light=#F8F9FA, Dark=#0D0D0D}">
 
-    <Grid RowDefinitions="Auto,*">
+ <Grid RowDefinitions="Auto,*">
   
-        <!-- Modern Header with Blur Effect -->
+   <!-- Modern Header -->
 <Border Grid.Row="0"
-          BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
+       BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"
 StrokeThickness="0">
  <Border.Shadow>
-      <Shadow Brush="{AppThemeBinding Light=#00000015, Dark=#00000040}"
+<Shadow Brush="{AppThemeBinding Light=#00000015, Dark=#00000040}"
   Offset="0,2"
      Radius="12"
      Opacity="1"/>
-            </Border.Shadow>
-       
+ </Border.Shadow>
+
             <VerticalStackLayout Padding="24,60,24,24" Spacing="20">
-            <!-- Header with Icon -->
-     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
-         <Border Grid.Column="0"
+          <!-- Header with Icon -->
+     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+   <Border Grid.Column="0"
        Background="{AppThemeBinding Light=#F0F0F0, Dark=#2A2A2A}"
-              WidthRequest="48"
-       HeightRequest="48"
+        WidthRequest="48"
+   HeightRequest="48"
      StrokeShape="RoundRectangle 14"
  StrokeThickness="0">
          <Label Text="📝"
     FontSize="26"
-           HorizontalOptions="Center"
-            VerticalOptions="Center"/>
-       </Border>
+     HorizontalOptions="Center"
+  VerticalOptions="Center"/>
+    </Border>
        
     <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
-      <Label Text="My Notes"
-         FontSize="28"
-        FontAttributes="Bold"
+    <Label Text="My Notes"
+   FontSize="28"
+    FontAttributes="Bold"
   TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"/>
  <Label Text="All your thoughts in one place"
      FontSize="13"
-           TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
+     TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
   Opacity="0.8"/>
-          </VerticalStackLayout>
-     
-            <Border Grid.Column="2"
- Background="{AppThemeBinding Light=#F0F0F0, Dark=#2A2A2A}"
-        WidthRequest="48"
-          HeightRequest="48"
-   StrokeShape="RoundRectangle 14"
-            StrokeThickness="0"
-    VerticalOptions="Center">
-        <Label Text="⚙️"
-   FontSize="20"
-           HorizontalOptions="Center"
-          VerticalOptions="Center"/>
-    </Border>
+     </VerticalStackLayout>
         </Grid>
       
-       <!-- Modern Search Bar -->
-         <Border BackgroundColor="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
-             Padding="16,12"
-           StrokeShape="RoundRectangle 14"
-                StrokeThickness="0">
-         <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+<!-- Modern Search Bar -->
+  <Border BackgroundColor="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
+      Padding="16,12"
+  StrokeShape="RoundRectangle 14"
+    StrokeThickness="0">
+    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
      <Label Grid.Column="0"
-             Text="🔍"
-       FontSize="20"
-                VerticalOptions="Center"
-         Opacity="0.5"/>
+      Text="🔍"
+  FontSize="20"
+       VerticalOptions="Center"
+   Opacity="0.5"/>
      <Entry Grid.Column="1"
-          x:Name="SearchEntry"
+      x:Name="SearchEntry"
    Placeholder="Search notes..."
   TextChanged="OnSearchTextChanged"
      BackgroundColor="Transparent"
    PlaceholderColor="{AppThemeBinding Light=#9CA3AF, Dark=#6B7280}"
-         TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
+  TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
            FontSize="16"
-         VerticalOptions="Center"/>
-       <Label Grid.Column="2"
-         Text="✕"
-          FontSize="18"
-     VerticalOptions="Center"
-     Opacity="0.4"
-             IsVisible="False"/>
-           </Grid>
-                </Border>
-        
-  <!-- Quick Filters -->
-     <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-         <HorizontalStackLayout Spacing="10">
-          <Border Background="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
-          Padding="16,8"
-      StrokeShape="RoundRectangle 20"
-  StrokeThickness="0">
-  <Label Text="All"
- FontSize="13"
-          FontAttributes="Bold"
-       TextColor="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}"/>
-           </Border>
-  
-     <Border Background="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
-               Padding="16,8"
-       StrokeShape="RoundRectangle 20"
-      StrokeThickness="0">
-              <Label Text="📌 Pinned"
-            FontSize="13"
-           TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
+   VerticalOptions="Center"/>
+         </Grid>
             </Border>
-        
-      <Border Background="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
-         Padding="16,8"
-   StrokeShape="RoundRectangle 20"
-StrokeThickness="0">
-    <Label Text="🏷️ Tagged"
-            FontSize="13"
-       TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
-           </Border>
-     
-         <Border Background="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
-          Padding="16,8"
-              StrokeShape="RoundRectangle 20"
-              StrokeThickness="0">
-           <Label Text="📁 Archive"
-           FontSize="13"
-        TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
-        </Border>
-       </HorizontalStackLayout>
-                </ScrollView>
-            </VerticalStackLayout>
+  </VerticalStackLayout>
         </Border>
 
         <!-- Content Area -->
  <Grid Grid.Row="1">
-        
+ 
     <!-- Loading -->
-        <ActivityIndicator x:Name="LoadingIndicator"
-            IsRunning="False"
-        IsVisible="False"
-      Color="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
+     <ActivityIndicator x:Name="LoadingIndicator"
+IsRunning="False"
+    IsVisible="False"
+  Color="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
          VerticalOptions="Center"
  HorizontalOptions="Center"/>
    
-            <!-- Modern Notes Grid -->
+    <!-- Notes Grid -->
       <CollectionView x:Name="NotesCollectionView"
-       SelectionMode="None"
+  SelectionMode="None"
    Margin="20,20,20,100">
      <CollectionView.ItemsLayout>
-  <LinearItemsLayout Orientation="Vertical" ItemSpacing="14"/>
+  <LinearItemsLayout Orientation="Vertical" ItemSpacing="16"/>
       </CollectionView.ItemsLayout>
      
       <CollectionView.ItemTemplate>
      <DataTemplate x:DataType="models:Note">
-  <Border Background="{Binding Color}"
-          Padding="20"
-   StrokeShape="RoundRectangle 16"
-    StrokeThickness="0">
-                 <Border.Shadow>
-  <Shadow Brush="{AppThemeBinding Light=#00000010, Dark=#00000030}"
-        Offset="0,4"
-      Radius="16"
+       <!-- Outer Border with Color Background -->
+ <Border Background="{Binding Color}"
+    Padding="0"
+     StrokeShape="RoundRectangle 18"
+     Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#374151}"
+            StrokeThickness="1.5">
+         <Border.Shadow>
+         <Shadow Brush="{AppThemeBinding Light=#00000018, Dark=#00000040}"
+  Offset="0,6"
+    Radius="20"
         Opacity="1"/>
-            </Border.Shadow>
+    </Border.Shadow>
     
-       <Border.GestureRecognizers>
-           <TapGestureRecognizer Tapped="OnNoteTapped"/>
-           </Border.GestureRecognizers>
-        
-          <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="12">
-   <!-- Header Row -->
-     <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="10">
-    <!-- Colored Accent Bar -->
-         <BoxView Grid.Column="0"
-  WidthRequest="4"
-          HeightRequest="24"
-            CornerRadius="2"
-         Color="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
-  HorizontalOptions="Start"
-     VerticalOptions="Center"
-                Opacity="0.3"/>
-    
-   <!-- Title -->
-           <Label Grid.Column="0"
-        Text="{Binding Title}"
-   FontSize="18"
-       FontAttributes="Bold"
-    TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
-                  LineBreakMode="TailTruncation"
-   Margin="14,0,0,0"
-          VerticalOptions="Center"/>
+         <Border.GestureRecognizers>
+      <TapGestureRecognizer Tapped="OnNoteTapped"/>
+   </Border.GestureRecognizers>
+  
+         <!-- Inner Content -->
+   <Grid ColumnDefinitions="6,*" Padding="0">
+       <!-- Color Accent Bar -->
+        <BoxView Grid.Column="0"
+      Color="{Binding Color}"
+   Opacity="0.8"
+  CornerRadius="18,0,0,18"
+     Margin="0"/>
+         
+     <!-- Main Content Area -->
+         <Grid Grid.Column="1" 
+         Padding="20" 
+            RowDefinitions="Auto,Auto,Auto,Auto" 
+        RowSpacing="12"
+            Background="{AppThemeBinding Light=#FFFFFF, Dark=#1A1A1A}">
+   
+          <!-- Header Row -->
+   <Grid Grid.Row="0" ColumnDefinitions="*,Auto" ColumnSpacing="10">
+      <!-- Title -->
+   <Label Grid.Column="0"
+      Text="{Binding Title}"
+        FontSize="19"
+         FontAttributes="Bold"
+     TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"
+LineBreakMode="TailTruncation"
+     VerticalOptions="Center"/>
  
-       <!-- Pin Badge -->
+         <!-- Pin Badge -->
      <Border Grid.Column="1"
-  Background="{AppThemeBinding Light=#FBBF2440, Dark=#FBBF2460}"
-            Padding="10,6"
-                  StrokeShape="RoundRectangle 10"
-  StrokeThickness="0"
-            IsVisible="{Binding IsPinned}">
-     <Label Text="📌"
-   FontSize="12"/>
-        </Border>
+     Background="{AppThemeBinding Light=#FBBF2450, Dark=#FBBF2470}"
+      Padding="12,6"
+      StrokeShape="RoundRectangle 12"
+         StrokeThickness="0"
+   IsVisible="{Binding IsPinned}">
+    <Border.Shadow>
+       <Shadow Brush="{AppThemeBinding Light=#FBBF2430, Dark=#FBBF2450}"
+       Offset="0,2"
+     Radius="4"
+  Opacity="1"/>
+  </Border.Shadow>
+      <Label Text="📌 Pinned"
+        FontSize="11"
+     FontAttributes="Bold"
+   TextColor="{AppThemeBinding Light=#92400E, Dark=#FEF3C7}"/>
+             </Border>
+       </Grid>
       
-               <!-- More Menu -->
-              <Label Grid.Column="2"
-    Text="⋯"
-      FontSize="22"
-     TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
-                  VerticalOptions="Center"/>
-            </Grid>
-      
-              <!-- Preview Content -->
-          <Label Grid.Row="1"
-                Text="{Binding Preview}"
-        FontSize="15"
-        TextColor="{AppThemeBinding Light=#4B5563, Dark=#D1D5DB}"
-   LineBreakMode="WordWrap"
+      <!-- Preview Content -->
+ <Label Grid.Row="1"
+    Text="{Binding Preview}"
+  FontSize="15"
+          TextColor="{AppThemeBinding Light=#4B5563, Dark=#D1D5DB}"
+        LineBreakMode="WordWrap"
        MaxLines="3"
-       LineHeight="1.4"/>
+         LineHeight="1.5"
+       Opacity="0.95"/>
   
-       <!-- Tags with Modern Chips -->
-     <FlexLayout Grid.Row="2"
-    Wrap="Wrap"
-       JustifyContent="Start"
-         AlignItems="Center"
-   IsVisible="{Binding Tags, Converter={StaticResource StringNotEmptyConverter}}">
-       <Border Background="{AppThemeBinding Light=#E5E7EB, Dark=#374151}"
-    Padding="10,5"
-           StrokeShape="RoundRectangle 8"
-            StrokeThickness="0"
-         Margin="0,0,6,0">
-  <Label Text="{Binding Tags}"
-    FontSize="12"
+   <!-- Tags with Modern Chips -->
+    <FlexLayout Grid.Row="2"
+  Wrap="Wrap"
+      JustifyContent="Start"
+  AlignItems="Center"
+       IsVisible="{Binding Tags, Converter={StaticResource StringNotEmptyConverter}}">
+      <Border Background="{AppThemeBinding Light=#E0E7FF, Dark=#3730A3}"
+     Padding="12,6"
+      StrokeShape="RoundRectangle 10"
+         StrokeThickness="0"
+        Margin="0,0,8,0">
+     <Label Text="{Binding Tags}"
+   FontSize="12"
    FontAttributes="Bold"
-       TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"/>
-    </Border>
-        </FlexLayout>
-             
-<!-- Footer Meta Info -->
-     <Grid Grid.Row="3" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
-    <Border Grid.Column="0"
-         Background="{AppThemeBinding Light=#F3F4F6, Dark=#252525}"
-              Padding="8,4"
-   StrokeShape="RoundRectangle 6"
-   StrokeThickness="0">
-   <Label Text="{Binding FormattedDate}"
-           FontSize="11"
-           TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
-                </Border>
-       
-      <Label Grid.Column="2"
-           Text="→"
-   FontSize="16"
-                 TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"
-        VerticalOptions="Center"/>
-           </Grid>
-           </Grid>
-               </Border>
-           </DataTemplate>
-    </CollectionView.ItemTemplate>
+         TextColor="{AppThemeBinding Light=#4338CA, Dark=#C7D2FE}"/>
+           </Border>
+           </FlexLayout>
   
-              <CollectionView.EmptyView>
+        <!-- Footer Meta Info -->
+     <Grid Grid.Row="3" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+    <Border Grid.Column="0"
+         Background="{AppThemeBinding Light=#F3F4F6, Dark=#1F2937}"
+    Padding="10,6"
+    StrokeShape="RoundRectangle 8"
+ StrokeThickness="0">
+        <Label Text="{Binding FormattedDate}"
+   FontSize="12"
+       TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
+   </Border>
+       
+ <Label Grid.Column="2"
+             Text="→"
+ FontSize="18"
+        FontAttributes="Bold"
+      TextColor="{AppThemeBinding Light=#9CA3AF, Dark=#6B7280}"
+ VerticalOptions="Center"
+        Opacity="0.6"/>
+           </Grid>
+         </Grid>
+   </Grid>
+     </Border>
+     </DataTemplate>
+ </CollectionView.ItemTemplate>
+  
+   <CollectionView.EmptyView>
    <!-- Modern Empty State -->
-         <VerticalStackLayout VerticalOptions="Center"
+       <VerticalStackLayout VerticalOptions="Center"
      HorizontalOptions="Center"
  Spacing="24"
-                 Padding="40">
+Padding="40">
     <Border Background="{AppThemeBinding Light=#F3F4F6, Dark=#1A1A1A}"
-          WidthRequest="100"
+   WidthRequest="100"
    HeightRequest="100"
        StrokeShape="RoundRectangle 50"
-           StrokeThickness="0"
+StrokeThickness="0"
      HorizontalOptions="Center">
          <Label Text="📝"
-         FontSize="52"
-              HorizontalOptions="Center"
-        VerticalOptions="Center"
+  FontSize="52"
+   HorizontalOptions="Center"
+     VerticalOptions="Center"
      Opacity="0.6"/>
-   </Border>
+ </Border>
         
-              <VerticalStackLayout Spacing="8">
+   <VerticalStackLayout Spacing="8">
  <Label Text="No notes yet"
       FontSize="24"
        FontAttributes="Bold"
-            HorizontalTextAlignment="Center"
-            TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"/>
-        <Label Text="Start capturing your ideas"
+   HorizontalTextAlignment="Center"
+     TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#FFFFFF}"/>
+      <Label Text="Start capturing your ideas"
       FontSize="15"
  HorizontalTextAlignment="Center"
-       TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
-      </VerticalStackLayout>
-       </VerticalStackLayout>
+  TextColor="{AppThemeBinding Light=#6B7280, Dark=#9CA3AF}"/>
+   </VerticalStackLayout>
+ </VerticalStackLayout>
           </CollectionView.EmptyView>
          </CollectionView>
-        </Grid>
+ </Grid>
 
-    <!-- Modern Floating Action Button -->
+  <!-- Modern Floating Action Button -->
     <Border Grid.Row="1"
-              WidthRequest="64"
+        WidthRequest="64"
         HeightRequest="64"
-                StrokeShape="RoundRectangle 32"
-            StrokeThickness="0"
+      StrokeShape="RoundRectangle 32"
+  StrokeThickness="0"
  HorizontalOptions="End"
       VerticalOptions="End"
     Margin="0,0,24,24">
  <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
       <GradientStop Color="#6366F1" Offset="0.0"/>
      <GradientStop Color="#8B5CF6" Offset="1.0"/>
-           </LinearGradientBrush>
-            </Border.Background>
+      </LinearGradientBrush>
+     </Border.Background>
      <Border.Shadow>
-      <Shadow Brush="#6366F180"
-             Offset="0,8"
+  <Shadow Brush="#6366F180"
+       Offset="0,8"
        Radius="24"
-         Opacity="1"/>
-            </Border.Shadow>
+     Opacity="1"/>
+    </Border.Shadow>
             
-            <Border.GestureRecognizers>
+   <Border.GestureRecognizers>
       <TapGestureRecognizer Tapped="OnAddNoteTapped"/>
-        </Border.GestureRecognizers>
-            
-            <Label Text="+"
+     </Border.GestureRecognizers>
+ 
+     <Label Text="+"
    FontSize="36"
-              TextColor="White"
+     TextColor="White"
           FontAttributes="Bold"
-        HorizontalOptions="Center"
-                VerticalOptions="Center"
-          Margin="0,-3,0,0"/>
+   HorizontalOptions="Center"
+       VerticalOptions="Center"
+    Margin="0,-3,0,0"/>
         </Border>
-    </Grid>
+</Grid>
 </ContentPage>
