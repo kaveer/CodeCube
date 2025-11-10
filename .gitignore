@@ -1,5 +1,24 @@
-/.vs/*
-/BmiCalculator/bin/*
-/BmiCalculator/bin/Debug/*
-/BmiCalculator/obj/*
-/BmiCalculator/bin/Debug/net9.0-android/*
+# Visual Studio
+/.vs/
+
+# Build outputs
+**/bin/
+**/obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
