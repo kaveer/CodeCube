@@ -62,6 +62,7 @@
          Placeholder="Enter your weight"
        Keyboard="Numeric"
     TextChanged="OnInputChanged"
+      TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
       SemanticProperties.Description="Enter your weight in kilograms" />
      </Border>
    </VerticalStackLayout>
@@ -85,6 +86,7 @@
               Placeholder="Enter your height"
     Keyboard="Numeric"
      TextChanged="OnInputChanged"
+     TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
   SemanticProperties.Description="Enter your height in centimeters" />
             </Border>
     </VerticalStackLayout>

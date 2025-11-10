@@ -15,6 +15,11 @@
 
         private void OnCalculateClicked(object? sender, EventArgs e)
         {
+            // Hide keyboard
+            WeightEntry.IsEnabled = false;
+            HeightEntry.IsEnabled = false;
+            WeightEntry.IsEnabled = true;
+            HeightEntry.IsEnabled = true;
             // Validate inputs
             if (!double.TryParse(WeightEntry.Text, out double weight) || weight <= 0)
             {
